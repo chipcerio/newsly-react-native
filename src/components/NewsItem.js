@@ -1,17 +1,24 @@
 import React, { Component } from 'react';
 import { StyleSheet, Image, View, Text } from 'react-native';
+import moment from 'moment';
 
-// 'https://i.imgur.com/LL0kYjo.jpg'
 class NewsItem extends Component {
+  constructor(props) {
+    super();
+    this.image = props.urlToImage;
+    this.title = props.title;
+    this.date = moment(props.publishedAt).format('ddd, DD MMM');
+  }
+
   render() {
     return (
       <View style={styles.rootViewStyle}>
-        <Image source={{uri: this.props.urlToImage}}
+        <Image source={{uri: this.image}}
                style={styles.imageViewStyle}/>
 
         <View style={styles.textViewStyle}>
-          <Text style={styles.titleStyle} numberOfLines={3}>{this.props.title}</Text>
-          <Text style={styles.subtitleStyle}>{this.props.publishedAt}</Text>
+          <Text style={styles.titleStyle} numberOfLines={3}>{this.title}</Text>
+          <Text style={styles.dateStyle}>{this.date}</Text>
         </View>
       </View>
     );
@@ -49,8 +56,9 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     marginRight: 16
   },
-  subtitleStyle: {
-    color: 'grey'
+  dateStyle: {
+    color: 'grey',
+    marginTop: 8
   }
 });
 
