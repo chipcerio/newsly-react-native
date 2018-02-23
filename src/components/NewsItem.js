@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import { StyleSheet, Image, View, Text } from 'react-native';
 
+// 'https://i.imgur.com/LL0kYjo.jpg'
 class NewsItem extends Component {
   render() {
     return (
       <View style={styles.rootViewStyle}>
-        <Image source={{uri: 'https://i.imgur.com/LL0kYjo.jpg'}}
+        <Image source={{uri: this.props.urlToImage}}
                style={styles.imageViewStyle}/>
 
         <View style={styles.textViewStyle}>
           <Text style={styles.titleStyle} numberOfLines={3}>{this.props.title}</Text>
-          <Text style={styles.subtitleStyle}>{this.props.subtitle}</Text>
+          <Text style={styles.subtitleStyle}>{this.props.publishedAt}</Text>
         </View>
       </View>
     );
