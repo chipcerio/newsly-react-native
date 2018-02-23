@@ -6,7 +6,7 @@ import NewsItem from './NewsItem';
 class NewsList extends Component {
   state = {articles: []};
 
-  componentDidMount() { // didMount
+  componentDidMount() {
     axios.get('https://newsapi.org/v2/everything?sources=bloomberg&page=1&apiKey=bfb69dded82d41fa9da1d7f03c110fb4')
       .then(response => this.setState({articles: response.data.articles}));
   }
