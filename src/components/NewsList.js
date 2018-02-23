@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { ScrollView } from 'react-native';
+import { NEWS_API } from 'react-native-dotenv';
 import axios from 'axios';
 import NewsItem from './NewsItem';
 
@@ -7,7 +8,7 @@ class NewsList extends Component {
   state = {articles: []};
 
   componentDidMount() {
-    axios.get('https://newsapi.org/v2/everything?sources=bloomberg&page=1&apiKey=')
+    axios.get(`https://newsapi.org/v2/everything?sources=bloomberg&page=1&apiKey=${NEWS_API}`)
       .then(response => this.setState({articles: response.data.articles}));
   }
 
