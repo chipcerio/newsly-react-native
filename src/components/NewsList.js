@@ -5,22 +5,24 @@ import axios from 'axios';
 import NewsItem from './NewsItem';
 
 class NewsList extends Component {
-  state = {articles: []};
+  constructor() {
+    super();
+    this.state = { articles: [] };
+  }
 
   componentDidMount() {
     axios.get(`https://newsapi.org/v2/everything?sources=bloomberg&page=1&apiKey=${NEWS_API}`)
-      .then(response => this.setState({articles: response.data.articles}));
+      .then(response => this.setState({ articles: response.data.articles }));
   }
 
   renderArticles() {
     return this.state.articles.map(article =>
-      <NewsItem
+      (<NewsItem
         key={article.title}
         urlToImage={article.urlToImage}
         title={article.title}
         publishedAt={article.publishedAt}
-      />
-    );
+      />));
   }
 
   render() {

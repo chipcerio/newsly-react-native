@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { StyleSheet, Image, View, Text } from 'react-native';
+import React, { Component, PropTypes } from 'react';
+import { StyleSheet, Image, View, Text, TouchableOpacity } from 'react-native';
 import moment from 'moment';
 
 class NewsItem extends Component {
@@ -8,22 +8,36 @@ class NewsItem extends Component {
     this.image = props.urlToImage;
     this.title = props.title;
     this.date = moment(props.publishedAt).format('ddd, DD MMM');
+    this.onPress = () => {
+      console.log('Pressend');
+    };
   }
 
   render() {
     return (
       <View style={styles.rootViewStyle}>
-        <Image source={{uri: this.image}}
-               style={styles.imageViewStyle}/>
+        <Image
+          source={{ uri: this.image }}
+          style={styles.imageViewStyle}
+        />
 
         <View style={styles.textViewStyle}>
-          <Text style={styles.titleStyle} numberOfLines={3}>{this.title}</Text>
-          <Text style={styles.dateStyle}>{this.date}</Text>
+          <TouchableOpacity onPress={this.onPress}>
+            <Text style={styles.titleStyle} numberOfLines={3}>{this.title}</Text>
+            <Text style={styles.dateStyle}>{this.date}</Text>
+          </TouchableOpacity>
+
         </View>
       </View>
     );
   }
 }
+
+NewsItem.propTypes = {
+  urlToImage: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  publishedAt: PropTypes.string.isRequired,
+};
 
 const styles = StyleSheet.create({
   rootViewStyle: {
@@ -42,24 +56,24 @@ const styles = StyleSheet.create({
   },
   imageViewStyle: {
     height: 128,
-    width: 96
+    width: 96,
   },
   textViewStyle: {
     justifyContent: 'center',
     paddingLeft: 8,
     paddingRight: 16,
-    flex: 1
+    flex: 1,
   },
   titleStyle: {
     fontSize: 20,
     fontWeight: 'bold',
     flexWrap: 'wrap',
-    marginRight: 16
+    marginRight: 16,
   },
   dateStyle: {
     color: 'grey',
-    marginTop: 8
-  }
+    marginTop: 8,
+  },
 });
 
 export default NewsItem;
