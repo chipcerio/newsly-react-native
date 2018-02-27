@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { StyleSheet, Image, View, Text, TouchableOpacity } from 'react-native';
 import moment from 'moment';
 
@@ -9,7 +10,7 @@ class NewsItem extends Component {
     this.title = props.title;
     this.date = moment(props.publishedAt).format('ddd, DD MMM');
     this.onPress = () => {
-      console.log('Pressend');
+      console.log('Pressed');
     };
   }
 
@@ -20,13 +21,11 @@ class NewsItem extends Component {
           source={{ uri: this.image }}
           style={styles.imageViewStyle}
         />
-
         <View style={styles.textViewStyle}>
           <TouchableOpacity onPress={this.onPress}>
             <Text style={styles.titleStyle} numberOfLines={3}>{this.title}</Text>
             <Text style={styles.dateStyle}>{this.date}</Text>
           </TouchableOpacity>
-
         </View>
       </View>
     );
