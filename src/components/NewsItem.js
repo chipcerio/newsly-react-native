@@ -12,7 +12,7 @@ class NewsItem extends Component {
     this.navigation = props.navigation;
   }
 
-  onPress = () => this.props.navigation.navigate('Details')
+  onPress = () => this.props.navigation.navigate('Details');
 
   render() {
     return (
