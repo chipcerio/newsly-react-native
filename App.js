@@ -1,13 +1,19 @@
 import React from 'react';
-import { View } from 'react-native';
-import Toolbar from './src/components/Toolbar';
-import NewsList from './src/components/NewsList';
+import { StackNavigator } from 'react-navigation';
+import Home from './src/screens/Home';
+import Details from './src/screens/Details';
+
+const RootStack = StackNavigator({
+  Home: {
+    screen: Home,
+  },
+  Details: {
+    screen: Details,
+  },
+});
 
 const App = () => (
-  <View style={{ flex: 1 }}>
-    <Toolbar title="Newsly" />
-    <NewsList />
-  </View>
+  <RootStack />
 );
 
 export default App;

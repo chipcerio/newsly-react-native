@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import { ScrollView } from 'react-native';
 import { NEWS_API } from 'react-native-dotenv';
+import PropTypes from 'prop-types';
 import axios from 'axios';
 import NewsItem from './NewsItem';
 
 class NewsList extends Component {
-  constructor() {
+  constructor(props) {
     super();
     this.state = { articles: [] };
+    this.props = props;
   }
 
   componentDidMount() {
@@ -22,6 +24,7 @@ class NewsList extends Component {
         urlToImage={article.urlToImage}
         title={article.title}
         publishedAt={article.publishedAt}
+        navigation={this.props.navigation}
       />));
   }
 
@@ -33,5 +36,9 @@ class NewsList extends Component {
     );
   }
 }
+
+NewsList.propTypes = {
+  navigation: PropTypes.object.isRequired,
+};
 
 export default NewsList;

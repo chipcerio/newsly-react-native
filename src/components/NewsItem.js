@@ -9,10 +9,10 @@ class NewsItem extends Component {
     this.image = props.urlToImage;
     this.title = props.title;
     this.date = moment(props.publishedAt).format('ddd, DD MMM');
-    this.onPress = () => {
-      console.log('Pressed');
-    };
+    this.navigation = props.navigation;
   }
+
+  onPress = () => this.props.navigation.navigate('Details')
 
   render() {
     return (
@@ -36,6 +36,7 @@ NewsItem.propTypes = {
   urlToImage: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   publishedAt: PropTypes.string.isRequired,
+  navigation: PropTypes.object.isRequired,
 };
 
 const styles = StyleSheet.create({
