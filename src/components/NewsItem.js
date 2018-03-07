@@ -8,11 +8,19 @@ class NewsItem extends Component {
     super();
     this.image = props.urlToImage;
     this.title = props.title;
+    this.description = props.description;
+    this.source = props.source;
     this.date = moment(props.publishedAt).format('ddd, DD MMM');
     this.navigation = props.navigation;
   }
 
-  onPress = () => this.props.navigation.navigate('Details');
+  onPress = () => this.props.navigation.navigate('Details', {
+    title: this.title,
+    description: this.description,
+    source: this.source,
+    image: this.image,
+    date: this.date,
+  });
 
   render() {
     return (
@@ -35,6 +43,8 @@ class NewsItem extends Component {
 NewsItem.propTypes = {
   urlToImage: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  source: PropTypes.string.isRequired,
   publishedAt: PropTypes.string.isRequired,
   navigation: PropTypes.object.isRequired,
 };

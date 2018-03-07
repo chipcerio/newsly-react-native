@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { StyleSheet, Image, Text, View } from 'react-native';
 
 class Details extends React.Component {
@@ -11,28 +12,29 @@ class Details extends React.Component {
       imageStyle, textContainerStyle, dateTextStyle, titleStyle,
     } = styles;
 
+    const { params } = this.props.navigation.state;
+    const {
+      date, source, title, description, image,
+    } = params;
+
     return (
       <View>
         <Image
           style={imageStyle}
-          source={{ uri: 'https://pbs.twimg.com/profile_images/948294484596375552/RyGNqDEM_400x400.jpg' }}
+          source={{ uri: image }}
         />
 
         <View style={textContainerStyle}>
-          <Text style={dateTextStyle}>05 Mar 2018</Text>
-          <Text style={dateTextStyle}>Bloombert</Text>
+          <Text style={dateTextStyle}>{date}</Text>
+          <Text style={dateTextStyle}>{source}</Text>
         </View>
 
         <View style={textContainerStyle}>
-          <Text style={titleStyle} numberOfLines={2}>
-          3 Charts to Know: Top Sector Losers from Trumps Tariff
-          </Text>
+          <Text style={titleStyle} numberOfLines={2}>{title}</Text>
         </View>
 
         <View style={textContainerStyle}>
-          <Text style={dateTextStyle}>
-          US investors are steeling themselves for Donald Trumps expected sign-off.
-          </Text>
+          <Text style={dateTextStyle}>{description}</Text>
         </View>
       </View>
     );
@@ -60,5 +62,9 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
   },
 });
+
+Details.propTypes = {
+  navigation: PropTypes.string.isRequired,
+};
 
 export default Details;

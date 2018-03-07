@@ -23,6 +23,8 @@ class NewsList extends Component {
         key={article.title}
         urlToImage={article.urlToImage}
         title={article.title}
+        description={article.description}
+        source={article.source.name}
         publishedAt={article.publishedAt}
         navigation={this.props.navigation}
       />));
