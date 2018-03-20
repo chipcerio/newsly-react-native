@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { ScrollView } from 'react-native';
 import { NEWS_API } from 'react-native-dotenv';
-import PropTypes from 'prop-types';
 import axios from 'axios';
-import NewsItem from './NewsItem';
+import NewsItem from '../NewsItem';
 
 class NewsList extends Component {
   constructor(props) {
@@ -38,9 +37,5 @@ class NewsList extends Component {
     );
   }
 }
-
-NewsList.propTypes = {
-  navigation: PropTypes.object.isRequired,
-};
 
 export default NewsList;

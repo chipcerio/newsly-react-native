@@ -1,21 +1,20 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { StyleSheet, Image, Text, View } from 'react-native';
+import React from 'react'
+import { StyleSheet, Image, Text, View } from 'react-native'
 
 class Details extends React.Component {
   static get navigationOptions() {
-    return { title: 'Details', header: null };
+    return { title: 'Details', header: null }
   }
 
   render() {
     const {
       imageStyle, textContainerStyle, dateTextStyle, titleStyle,
-    } = styles;
+    } = styles
 
-    const { params } = this.props.navigation.state;
+    const { params } = this.props.navigation.state
     const {
       date, source, title, description, image,
-    } = params;
+    } = params
 
     return (
       <View>
@@ -37,7 +36,7 @@ class Details extends React.Component {
           <Text style={dateTextStyle}>{description}</Text>
         </View>
       </View>
-    );
+    )
   }
 }
 
@@ -61,10 +60,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     flexWrap: 'wrap',
   },
-});
+})
 
-Details.propTypes = {
-  navigation: PropTypes.string.isRequired,
-};
-
-export default Details;
+export default Details

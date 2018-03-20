@@ -8,5 +8,8 @@ module.exports = {
     "import/no-named-as-default-member": 0,
     "react/forbid-prop-types": 0,
     "strict": 0,
+    "react/prop-types": 0,
+    "semi": 0,
+    "react/prefer-stateless-function": 0,
   },
 };
