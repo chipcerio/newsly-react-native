@@ -1,25 +1,17 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 import { ScrollView } from 'react-native'
-import { NEWS_API } from 'react-native-dotenv'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 import NewsItem from '../NewsItem'
 import * as actions from '../../actions'
 
 class NewsList extends Component {
-  constructor(props) {
-    super();
-    this.state = { articles: [] }
-    this.props = props
-  }
-
-  componentDidMount() {
-    axios.get(`https://newsapi.org/v2/everything?sources=bloomberg&page=1&apiKey=${NEWS_API}`)
-      .then(response => this.setState({ articles: response.data.articles }))
+  componentWillMount() {
+    this.props.actions.newsList()
   }
 
   renderArticles() {
-    return this.state.articles.map(article =>
+    return this.props.articles.map(article =>
       (<NewsItem
         key={article.title}
         urlToImage={article.urlToImage}
@@ -42,11 +34,17 @@ class NewsList extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    list: state.news.list, // destructure this
+    articles: state.news.articles,
     empty: state.news.empty,
     onLoading: state.news.onLoading,
     onError: state.news.onError,
   }
 }
 
-export default connect(mapStateToProps, actions)(NewsList)
+const mapDispatchToProps = (dispatch) => {
+  return {
+    actions: bindActionCreators(actions, dispatch),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(NewsList)

@@ -6,7 +6,7 @@ import {
 } from '../actions/types'
 
 const INITIAL_STATE = {
-  list: [],
+  articles: [],
   empty: [],
   onLoading: false,
   onError: false,
@@ -15,18 +15,16 @@ const INITIAL_STATE = {
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case NEWS_LIST:
-      return { ...state, list: action.payload }
+      return { ...state, articles: action.payload }
 
     case EMPTY_LIST:
       return { ...state, empty: action.payload }
 
     case ON_LOADING:
-      // update the state
-      // shallow cloning, spread syntax
-      return { ...state, onLoading: action.payload }
+      return { ...state, onLoading: true, onError: '' }
 
     case ON_ERROR:
-      return { ...state, onError: action.payload }
+      return { ...state, onLoading: false, onError: action.payload }
 
     default:
       return state
