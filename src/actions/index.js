@@ -7,7 +7,7 @@ import {
   ON_ERROR,
 } from './types'
 
-export const newsList = () => {
+export const getArticles = () => {
   return (dispatch) => {
     dispatch({ type: ON_LOADING })
 

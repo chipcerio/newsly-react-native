@@ -7,7 +7,7 @@ import * as actions from '../../actions'
 
 class NewsList extends Component {
   componentWillMount() {
-    this.props.actions.newsList()
+    this.props.actions.getArticles()
   }
 
   renderArticles() {

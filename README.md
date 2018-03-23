@@ -11,6 +11,7 @@ Also, themeing isn't applied to the app
 ### React Native development
 Newsly uses the these libraries:s
 
+ * uses [Redux](https://redux.js.org/) 
  * uses [Axios](https://github.com/axios/axios) Promise based HTTP client
  * uses [React Navigation](https://reactnavigation.org/) for routing and navigation
  * uses [Moment](https://momentjs.com/) for date/time manipulation
@@ -32,7 +33,6 @@ When you obtain the API key, include this as a parameter when running the app th
 This project follows the [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)
 
 ### TODO
- * applying [Redux](https://redux.js.org/)
  * unit tests
  * add more news sources
  * add retry mechanism
