@@ -11,7 +11,7 @@ Also, themeing isn't applied to the app
 ### React Native development
 Newsly uses the these libraries:s
 
- * uses [Redux](https://redux.js.org/) 
+ * uses [Redux](https://redux.js.org/) State management for Javascript apps
  * uses [Axios](https://github.com/axios/axios) Promise based HTTP client
  * uses [React Navigation](https://reactnavigation.org/) for routing and navigation
  * uses [Moment](https://momentjs.com/) for date/time manipulation

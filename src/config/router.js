@@ -1,6 +1,7 @@
 import { StackNavigator } from 'react-navigation'
 import Home from '../screens/Home'
 import Details from '../screens/Details'
+import Sources from '../screens/Sources'
 
 const RootStack = StackNavigator({
   Home: {
@@ -8,6 +9,9 @@ const RootStack = StackNavigator({
   },
   Details: {
     screen: Details,
+  },
+  Sources: {
+    screen: Sources,
   },
 })
 

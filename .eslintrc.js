@@ -13,5 +13,7 @@ module.exports = {
     "react/prefer-stateless-function": 0,
     "arrow-body-style": 0,
     "object-curly-newline": 0,
+    "global-require": 0,
+    "import/no-unresolved": 0,
   },
 };

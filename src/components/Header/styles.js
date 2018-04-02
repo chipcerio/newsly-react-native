@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
-  container: {
+  containerStyle: {
     backgroundColor: '#3F51B5',
     height: 64,
     paddingLeft: 16,
@@ -14,15 +14,13 @@ export default StyleSheet.create({
     shadowOpacity: 0.4,
     elevation: 2,
   },
-  text: {
+  textStyle: {
     fontSize: 20,
     fontWeight: 'bold',
     color: 'white',
     marginTop: 16,
   },
-  dummyStyle: {
-    height: 50,
-    width: 50,
-    backgroundColor: 'skyblue',
+  imgStyle: {
+    marginTop: 16,
   },
 })
