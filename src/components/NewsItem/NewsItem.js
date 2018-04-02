@@ -23,16 +23,24 @@ class NewsItem extends Component {
   })
 
   render() {
+    const {
+      rootViewStyle,
+      imageViewStyle,
+      textViewStyle,
+      titleStyle,
+      dateStyle,
+    } = styles
+
     return (
-      <View style={styles.rootViewStyle}>
+      <View style={rootViewStyle}>
         <Image
           source={{ uri: this.image }}
-          style={styles.imageViewStyle}
+          style={imageViewStyle}
         />
-        <View style={styles.textViewStyle}>
+        <View style={textViewStyle}>
           <TouchableOpacity onPress={this.onPress}>
-            <Text style={styles.titleStyle} numberOfLines={3}>{this.title}</Text>
-            <Text style={styles.dateStyle}>{this.date}</Text>
+            <Text style={titleStyle} numberOfLines={3}>{this.title}</Text>
+            <Text style={dateStyle}>{this.date}</Text>
           </TouchableOpacity>
         </View>
       </View>

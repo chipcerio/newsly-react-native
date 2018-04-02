@@ -8,17 +8,13 @@ import NewsList from '../components/NewsList'
 import reducers from '../reducers'
 
 class Home extends Component {
-  static get navigationOptions() {
-    return { title: 'Home', header: null }
-  }
-
   render() {
     const store = createStore(reducers, {}, applyMiddleware(ReduxThunk))
 
     return (
       <Provider store={store}>
         <View style={{ flex: 1 }}>
-          <Header title="Newsly" />
+          <Header title="Newsly" navigation={this.props.navigation} />
           <NewsList navigation={this.props.navigation} />
         </View>
       </Provider>
