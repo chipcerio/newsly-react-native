@@ -5,3 +5,5 @@ export const NEWS_LIST = 'news_list'
 export const ON_LOADING = 'on_loading'
 
 export const ON_ERROR = 'on_error'
+
+export const SOURCE_LIST = 'source_list'
