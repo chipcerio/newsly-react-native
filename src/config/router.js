@@ -6,7 +6,6 @@ import Sources from '../screens/Sources'
 const RootStack = StackNavigator({
   Home: {
     screen: Home,
-    navigationOptions: { title: 'Home', header: null },
   },
   Details: {
     screen: Details,
@@ -14,7 +13,6 @@ const RootStack = StackNavigator({
   },
   Sources: {
     screen: Sources,
-    navigationOptions: { title: 'Sources', header: null },
   },
 })
 

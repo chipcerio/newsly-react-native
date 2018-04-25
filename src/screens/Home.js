@@ -1,13 +1,22 @@
 import React, { Component } from 'react'
-import { View } from 'react-native'
-import Header from '../components/Header'
+import { View, Button } from 'react-native'
 import NewsList from '../components/NewsList'
 
 class Home extends Component {
+  static navigationOptions = ({ navigation }) => ({
+    title: 'Home',
+    headerRight: (
+      <Button
+        onPress={() => navigation.navigate('Sources')}
+        title="Sources"
+        color="rgb(0, 122, 255)"
+      />
+    ),
+  })
+
   render() {
     return (
       <View style={{ flex: 1 }}>
-        <Header title="Newsly" navigation={this.props.navigation} />
         <NewsList navigation={this.props.navigation} />
       </View>
     )
