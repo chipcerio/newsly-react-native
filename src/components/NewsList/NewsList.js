@@ -1,31 +1,40 @@
 import React, { Component } from 'react'
-import { ScrollView } from 'react-native'
+import { FlatList, View } from 'react-native'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import NewsItem from '../NewsItem'
 import * as actions from '../../actions'
 
 class NewsList extends Component {
-  componentWillMount() {
+  componentDidMount() {
     this.props.actions.getArticles()
   }
 
-  renderArticles() {
-    return this.props.articles.map(article => (
-      <NewsItem
-        key={article.title}
-        urlToImage={article.urlToImage}
-        title={article.title}
-        description={article.description}
-        source={article.source.name}
-        publishedAt={article.publishedAt}
-        navigation={this.props.navigation}
-      />
-    ))
-  }
+  renderArticle = ({ item }) => (
+    <NewsItem
+      urlToImage={item.urlToImage}
+      title={item.title}
+      description={item.description}
+      source={item.source.name}
+      publishedAt={item.publishedAt}
+      navigation={this.props.navigation}
+    />
+  )
 
   render() {
-    return <ScrollView>{this.renderArticles()}</ScrollView>
+    if (this.props.articles.length <= 0) {
+      return <View />
+    }
+
+    return (
+      <View style={{ flex: 1 }}>
+        <FlatList
+          data={this.props.articles}
+          keyExtractor={item => item.publishedAt}
+          renderItem={this.renderArticle}
+        />
+      </View>
+    )
   }
 }
 
