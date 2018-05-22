@@ -5,7 +5,7 @@ import styles from './styles'
 
 class NewsItem extends Component {
   constructor(props) {
-    super();
+    super()
     this.image = props.urlToImage
     this.title = props.title
     this.description = props.description
@@ -14,37 +14,31 @@ class NewsItem extends Component {
     this.navigation = props.navigation
   }
 
-  onPress = () => this.props.navigation.navigate('Details', {
-    title: this.title,
-    description: this.description,
-    source: this.source,
-    image: this.image,
-    date: this.date,
-  })
+  onPress = () =>
+    this.props.navigation.navigate('Details', {
+      title: this.title,
+      description: this.description,
+      source: this.source,
+      image: this.image,
+      date: this.date,
+    })
 
   render() {
-    const {
-      rootViewStyle,
-      imageViewStyle,
-      textViewStyle,
-      titleStyle,
-      dateStyle,
-    } = styles
+    const { rootViewStyle, imageViewStyle, textViewStyle, titleStyle, dateStyle } = styles
 
     return (
       <View style={rootViewStyle}>
-        <Image
-          source={{ uri: this.image }}
-          style={imageViewStyle}
-        />
+        <Image source={{ uri: this.image }} style={imageViewStyle} />
         <View style={textViewStyle}>
           <TouchableOpacity onPress={this.onPress}>
-            <Text style={titleStyle} numberOfLines={3}>{this.title}</Text>
+            <Text style={titleStyle} numberOfLines={3}>
+              {this.title}
+            </Text>
             <Text style={dateStyle}>{this.date}</Text>
           </TouchableOpacity>
         </View>
       </View>
-    );
+    )
   }
 }
 

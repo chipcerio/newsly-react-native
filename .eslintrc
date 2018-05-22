@@ -1,0 +1,44 @@
+{
+  "plugins": [
+    "prettier",
+    "react",
+    "react-native",
+    "jsx-a11y",
+    "import"
+  ],
+  "extends": [
+    "airbnb",
+    "prettier",
+    "prettier/react"
+  ],
+  "parser": "babel-eslint",
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "printWidth": 100,
+        "useTabs": false,
+        "tabWidth": 2,
+        "singleQuote": true,
+        "semi": false,
+        "trailingComma": "all",
+        "jsxBracketSameLine": false,
+        "bracketSpacing": true,
+        "arrowParens": "avoid"
+      }
+    ],
+    "react/jsx-filename-extension": 0,
+    "no-use-before-define": 0,
+    "import/no-named-as-default": 0,
+    "import/no-named-as-default-member": 0,
+    "react/forbid-prop-types": 0,
+    "strict": 0,
+    "react/prop-types": 0,
+    "semi": 0,
+    "react/prefer-stateless-function": 0,
+    "arrow-body-style": 0,
+    "object-curly-newline": 0,
+    "global-require": 0,
+    "import/no-unresolved": 0
+  }
+}

@@ -8,9 +8,7 @@ class SourceItem extends Component {
 
     return (
       <View style={rootViewStyle}>
-        <Text style={textViewStyle}>
-          {this.props.title}
-        </Text>
+        <Text style={textViewStyle}>{this.props.title}</Text>
       </View>
     )
   }

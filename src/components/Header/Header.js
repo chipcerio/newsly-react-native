@@ -12,10 +12,7 @@ class Header extends Component {
       <View style={containerStyle}>
         <Text style={textStyle}>{this.props.title}</Text>
         <TouchableOpacity onPress={this.onPress}>
-          <Image
-            source={require('../../images/ic_newspaper.png')}
-            style={imgStyle}
-          />
+          <Image source={require('../../images/ic_newspaper.png')} style={imgStyle} />
         </TouchableOpacity>
       </View>
     )

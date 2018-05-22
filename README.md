@@ -33,6 +33,7 @@ When you obtain the API key, include this as a parameter when running the app th
 This project follows the [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)
 
 ### TODO
+ * pagination
  * unit tests
  * add more news sources
  * add retry mechanism

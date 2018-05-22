@@ -1,8 +1,4 @@
-import {
-  SOURCE_LIST,
-  ON_LOADING,
-  ON_ERROR,
-} from '../actions/types'
+import { SOURCE_LIST, ON_LOADING, ON_ERROR } from '../actions/types'
 
 const INITIAL_STATE = {
   sources: [],

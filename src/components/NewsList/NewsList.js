@@ -11,8 +11,8 @@ class NewsList extends Component {
   }
 
   renderArticles() {
-    return this.props.articles.map(article =>
-      (<NewsItem
+    return this.props.articles.map(article => (
+      <NewsItem
         key={article.title}
         urlToImage={article.urlToImage}
         title={article.title}
@@ -20,19 +20,16 @@ class NewsList extends Component {
         source={article.source.name}
         publishedAt={article.publishedAt}
         navigation={this.props.navigation}
-      />))
+      />
+    ))
   }
 
   render() {
-    return (
-      <ScrollView>
-        {this.renderArticles()}
-      </ScrollView>
-    )
+    return <ScrollView>{this.renderArticles()}</ScrollView>
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     articles: state.news.articles,
     empty: state.news.empty,
@@ -41,7 +38,7 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
     actions: bindActionCreators(actions, dispatch),
   }

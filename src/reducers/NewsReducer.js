@@ -1,9 +1,4 @@
-import {
-  NEWS_LIST,
-  EMPTY_LIST,
-  ON_LOADING,
-  ON_ERROR,
-} from '../actions/types'
+import { NEWS_LIST, EMPTY_LIST, ON_LOADING, ON_ERROR } from '../actions/types'
 
 const INITIAL_STATE = {
   articles: [],

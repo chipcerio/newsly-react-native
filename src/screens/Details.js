@@ -3,21 +3,14 @@ import { StyleSheet, Image, Text, View } from 'react-native'
 
 class Details extends React.Component {
   render() {
-    const {
-      imageStyle, textContainerStyle, dateTextStyle, titleStyle,
-    } = styles
+    const { imageStyle, textContainerStyle, dateTextStyle, titleStyle } = styles
 
     const { params } = this.props.navigation.state
-    const {
-      date, source, title, description, image,
-    } = params
+    const { date, source, title, description, image } = params
 
     return (
       <View>
-        <Image
-          style={imageStyle}
-          source={{ uri: image }}
-        />
+        <Image style={imageStyle} source={{ uri: image }} />
 
         <View style={textContainerStyle}>
           <Text style={dateTextStyle}>{date}</Text>
@@ -25,7 +18,9 @@ class Details extends React.Component {
         </View>
 
         <View style={textContainerStyle}>
-          <Text style={titleStyle} numberOfLines={2}>{title}</Text>
+          <Text style={titleStyle} numberOfLines={2}>
+            {title}
+          </Text>
         </View>
 
         <View style={textContainerStyle}>
