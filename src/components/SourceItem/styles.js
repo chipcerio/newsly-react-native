@@ -3,12 +3,14 @@ import { StyleSheet } from 'react-native'
 export default StyleSheet.create({
   rootViewStyle: {
     flexDirection: 'row',
-    marginRight: 16,
-    marginLeft: 16,
-    marginTop: 8,
-    marginBottom: 8,
+    paddingLeft: 20,
+    paddingRight: 20,
+    paddingTop: 12,
+    paddingBottom: 12,
+    borderBottomWidth: 0.6,
+    borderColor: '#CECECE',
   },
   textViewStyle: {
-    fontSize: 18,
+    fontSize: 16,
   },
 })
