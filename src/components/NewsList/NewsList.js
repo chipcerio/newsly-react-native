@@ -30,7 +30,7 @@ class NewsList extends Component {
       <View style={{ flex: 1 }}>
         <FlatList
           data={this.props.articles}
-          keyExtractor={item => item.publishedAt}
+          keyExtractor={item => item.title}
           renderItem={this.renderArticle}
         />
       </View>

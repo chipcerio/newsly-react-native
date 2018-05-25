@@ -1,21 +1,27 @@
 import React, { Component } from 'react'
-import { ScrollView } from 'react-native'
+import { FlatList, View } from 'react-native'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as actions from '../../actions'
 import SourceItem from '../SourceItem/SourceItem'
 
 class SourceList extends Component {
-  componentWillMount() {
+  componentDidMount() {
     this.props.actions.getSources()
   }
 
-  renderSources() {
-    return this.props.sources.map(source => <SourceItem key={source.id} title={source.name} />)
-  }
+  renderSourceItem = ({ item }) => <SourceItem title={item.name} />
 
   render() {
-    return <ScrollView>{this.renderSources()}</ScrollView>
+    return (
+      <View style={{ flex: 1 }}>
+        <FlatList
+          data={this.props.sources}
+          keyExtractor={item => item.id}
+          renderItem={this.renderSourceItem}
+        />
+      </View>
+    )
   }
 }
 

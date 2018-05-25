@@ -7,19 +7,19 @@ const INITIAL_STATE = {
   onError: false,
 }
 
-export default (state = INITIAL_STATE, action) => {
-  switch (action.type) {
+export default (state = INITIAL_STATE, { type, payload }) => {
+  switch (type) {
     case NEWS_LIST:
-      return { ...state, articles: action.payload }
+      return { ...state, articles: payload }
 
     case EMPTY_LIST:
-      return { ...state, empty: action.payload }
+      return { ...state, empty: payload }
 
     case ON_LOADING:
       return { ...state, onLoading: true, onError: '' }
 
     case ON_ERROR:
-      return { ...state, onLoading: false, onError: action.payload }
+      return { ...state, onLoading: false, onError: payload }
 
     default:
       return state
