@@ -1,4 +1,9 @@
 {
+  "extends": [
+    "airbnb",
+    "prettier",
+    "prettier/react"
+  ],
   "plugins": [
     "prettier",
     "react",
@@ -6,12 +11,6 @@
     "jsx-a11y",
     "import"
   ],
-  "extends": [
-    "airbnb",
-    "prettier",
-    "prettier/react"
-  ],
-  "parser": "babel-eslint",
   "rules": {
     "prettier/prettier": [
       "error",
@@ -20,25 +19,90 @@
         "useTabs": false,
         "tabWidth": 2,
         "singleQuote": true,
-        "semi": false,
+        "semi": true,
         "trailingComma": "all",
         "jsxBracketSameLine": false,
         "bracketSpacing": true,
         "arrowParens": "avoid"
       }
     ],
-    "react/jsx-filename-extension": 0,
     "no-use-before-define": 0,
-    "import/no-named-as-default": 0,
-    "import/no-named-as-default-member": 0,
-    "react/forbid-prop-types": 0,
-    "strict": 0,
-    "react/prop-types": 0,
-    "semi": 0,
+    "import/no-unresolved": [
+      2,
+      {
+        "ignore": [
+          ".png$",
+          ".webp$",
+          ".jpg$",
+          "ViewPropTypes"
+        ]
+      }
+    ],
+    "no-console": 0,
+    "react/jsx-filename-extension": [
+      0,
+      {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    ],
+    "no-underscore-dangle": [
+      1,
+      {
+        "allow": [
+          "__typename"
+        ]
+      }
+    ],
     "react/prefer-stateless-function": 0,
-    "arrow-body-style": 0,
-    "object-curly-newline": 0,
-    "global-require": 0,
-    "import/no-unresolved": 0
+    "react/forbid-prop-types": [
+      0,
+      {
+        "forbid": []
+      }
+    ],
+    "react/prop-types": 0,
+    "import/extensions": [
+      1,
+      "never",
+      {
+        "svg": "always"
+      }
+    ],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": true,
+        "optionalDependencies": false,
+        "peerDependencies": false
+      }
+    ],
+    "global-require": "off",
+    "class-methods-use-this": [
+      "error",
+      {
+        "exceptMethods": [
+          "render",
+          "getInitialState",
+          "getDefaultProps",
+          "getChildContext",
+          "componentWillMount",
+          "componentDidMount",
+          "componentWillReceiveProps",
+          "shouldComponentUpdate",
+          "componentWillUpdate",
+          "componentDidUpdate",
+          "componentWillUnmount",
+          "componentDidCatch"
+        ]
+      }
+    ]
+  },
+  "parser": "babel-eslint",
+  "globals": {
+    "fetch": false,
+    "FormData": false
   }
 }

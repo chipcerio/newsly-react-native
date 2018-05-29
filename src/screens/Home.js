@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
-import { View, Button } from 'react-native'
-import NewsList from '../components/NewsList'
+import React, { Component } from 'react';
+import { View, Button } from 'react-native';
+import NewsList from '../components/NewsList';
 
 class Home extends Component {
   static navigationOptions = ({ navigation }) => ({
@@ -12,15 +12,15 @@ class Home extends Component {
         color="rgb(0, 122, 255)"
       />
     ),
-  })
+  });
 
   render() {
     return (
       <View style={{ flex: 1 }}>
         <NewsList navigation={this.props.navigation} />
       </View>
-    )
+    );
   }
 }
 
-export default Home
+export default Home;

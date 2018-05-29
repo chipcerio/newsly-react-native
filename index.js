@@ -1,4 +1,5 @@
-import { AppRegistry } from 'react-native'
-import App from './src/App'
+import { AppRegistry } from 'react-native';
+import App from './src/App';
 
-AppRegistry.registerComponent('newsly_react_native', () => App)
+console.disableYellowBox = true;
+AppRegistry.registerComponent('newsly_react_native', () => App);

@@ -1,3 +1,3 @@
-import SourceItem from './SourceItem'
+import SourceItem from './SourceItem';
 
-export default SourceItem
+export default SourceItem;

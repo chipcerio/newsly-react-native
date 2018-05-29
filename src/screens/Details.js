@@ -1,12 +1,14 @@
-import React from 'react'
-import { StyleSheet, Image, Text, View } from 'react-native'
+import React from 'react';
+import { StyleSheet, Image, Text, View } from 'react-native';
 
 class Details extends React.Component {
-  render() {
-    const { imageStyle, textContainerStyle, dateTextStyle, titleStyle } = styles
+  static navigationOptions = { title: 'Details', header: null };
 
-    const { params } = this.props.navigation.state
-    const { date, source, title, description, image } = params
+  render() {
+    const { imageStyle, textContainerStyle, dateTextStyle, titleStyle } = styles;
+
+    const { params } = this.props.navigation.state;
+    const { date, source, title, description, image } = params;
 
     return (
       <View>
@@ -27,7 +29,7 @@ class Details extends React.Component {
           <Text style={dateTextStyle}>{description}</Text>
         </View>
       </View>
-    )
+    );
   }
 }
 
@@ -51,6 +53,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     flexWrap: 'wrap',
   },
-})
+});
 
-export default Details
+export default Details;

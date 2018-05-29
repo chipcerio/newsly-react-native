@@ -1,17 +1,17 @@
-import React, { Component } from 'react'
-import { Image, View, Text, TouchableOpacity } from 'react-native'
-import moment from 'moment'
-import styles from './styles'
+import React, { Component } from 'react';
+import { Image, View, Text, TouchableOpacity } from 'react-native';
+import moment from 'moment';
+import styles from './styles';
 
 class NewsItem extends Component {
   constructor(props) {
-    super()
-    this.image = props.urlToImage
-    this.title = props.title
-    this.description = props.description
-    this.source = props.source
-    this.date = moment(props.publishedAt).format('ddd, DD MMM')
-    this.navigation = props.navigation
+    super();
+    this.image = props.urlToImage == null ? 'http://via.placeholder.com/128x96' : props.urlToImage;
+    this.title = props.title;
+    this.description = props.description;
+    this.source = props.source;
+    this.date = moment(props.publishedAt).format('ddd, DD MMM');
+    this.navigation = props.navigation;
   }
 
   onPress = () =>
@@ -21,10 +21,10 @@ class NewsItem extends Component {
       source: this.source,
       image: this.image,
       date: this.date,
-    })
+    });
 
   render() {
-    const { rootViewStyle, imageViewStyle, textViewStyle, titleStyle, dateStyle } = styles
+    const { rootViewStyle, imageViewStyle, textViewStyle, titleStyle, dateStyle } = styles;
 
     return (
       <View style={rootViewStyle}>
@@ -38,8 +38,8 @@ class NewsItem extends Component {
           </TouchableOpacity>
         </View>
       </View>
-    )
+    );
   }
 }
 
-export default NewsItem
+export default NewsItem;

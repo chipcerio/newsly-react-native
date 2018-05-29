@@ -1,16 +1,16 @@
-import React, { Component } from 'react'
-import { FlatList, View } from 'react-native'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import * as actions from '../../actions'
-import SourceItem from '../SourceItem/SourceItem'
+import React, { Component } from 'react';
+import { FlatList, View } from 'react-native';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as actions from '../../actions';
+import SourceItem from '../SourceItem';
 
 class SourceList extends Component {
   componentDidMount() {
-    this.props.actions.getSources()
+    this.props.actions.getSources();
   }
 
-  renderSourceItem = ({ item }) => <SourceItem title={item.name} />
+  renderSourceItem = ({ item }) => <SourceItem title={item.name} />;
 
   render() {
     return (
@@ -21,7 +21,7 @@ class SourceList extends Component {
           renderItem={this.renderSourceItem}
         />
       </View>
-    )
+    );
   }
 }
 
@@ -31,13 +31,13 @@ const mapStateToProps = state => {
     empty: state.source.empty,
     onLoading: state.source.onLoading,
     onError: state.source.onError,
-  }
-}
+  };
+};
 
 const mapDispatchToProps = dispatch => {
   return {
     actions: bindActionCreators(actions, dispatch),
-  }
-}
+  };
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(SourceList)
+export default connect(mapStateToProps, mapDispatchToProps)(SourceList);

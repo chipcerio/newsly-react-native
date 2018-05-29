@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   rootViewStyle: {
@@ -13,4 +13,4 @@ export default StyleSheet.create({
   textViewStyle: {
     fontSize: 16,
   },
-})
+});

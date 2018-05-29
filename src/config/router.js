@@ -1,19 +1,12 @@
-import { StackNavigator } from 'react-navigation'
-import Home from '../screens/Home'
-import Details from '../screens/Details'
-import Sources from '../screens/Sources'
+import { StackNavigator } from 'react-navigation';
+import HomeScreen from '../screens/Home';
+import DetailsScreen from '../screens/Details';
+import SourcesScreen from '../screens/Sources';
 
 const RootStack = StackNavigator({
-  Home: {
-    screen: Home,
-  },
-  Details: {
-    screen: Details,
-    navigationOptions: { title: 'Details', header: null },
-  },
-  Sources: {
-    screen: Sources,
-  },
-})
+  Home: { screen: HomeScreen },
+  Details: { screen: DetailsScreen },
+  Sources: { screen: SourcesScreen },
+});
 
-export default RootStack
+export default RootStack;

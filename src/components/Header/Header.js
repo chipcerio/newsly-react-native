@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
-import { Text, View, Image, TouchableOpacity } from 'react-native'
-import styles from './styles'
+import React, { Component } from 'react';
+import { Text, View, Image, TouchableOpacity } from 'react-native';
+import styles from './styles';
 
 class Header extends Component {
-  onPress = () => this.props.navigation.navigate('Sources', {})
+  onPress = () => this.props.navigation.navigate('Sources', {});
 
   render() {
-    const { containerStyle, textStyle, imgStyle } = styles
+    const { containerStyle, textStyle, imgStyle } = styles;
 
     return (
       <View style={containerStyle}>
@@ -15,8 +15,8 @@ class Header extends Component {
           <Image source={require('../../images/ic_newspaper.png')} style={imgStyle} />
         </TouchableOpacity>
       </View>
-    )
+    );
   }
 }
 
-export default Header
+export default Header;

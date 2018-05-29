@@ -1,3 +1,3 @@
-import SourceList from './SourceList'
+import SourceList from './SourceList';
 
-export default SourceList
+export default SourceList;
