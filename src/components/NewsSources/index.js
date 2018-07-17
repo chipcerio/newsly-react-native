@@ -3,14 +3,14 @@ import { FlatList, View } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../../actions';
-import SourceItem from '../SourceItem';
+import Item from './Item';
 
-class SourceList extends Component {
+class NewsSources extends Component {
   componentDidMount() {
     this.props.actions.getSources();
   }
 
-  renderSourceItem = ({ item }) => <SourceItem title={item.name} />;
+  renderSourceItem = ({ item }) => <Item title={item.name} />;
 
   render() {
     return (
@@ -36,4 +36,4 @@ const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators(actions, dispatch),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SourceList);
+export default connect(mapStateToProps, mapDispatchToProps)(NewsSources);

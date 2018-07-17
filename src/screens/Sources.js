@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
-import SourceList from '../components/SourceList';
+import NewsSources from '../components/NewsSources';
 
 class Sources extends Component {
   static navigationOptions = { title: 'Sources' };
@@ -8,7 +8,7 @@ class Sources extends Component {
   render() {
     return (
       <View style={{ flex: 1 }}>
-        <SourceList />
+        <NewsSources />
       </View>
     );
   }

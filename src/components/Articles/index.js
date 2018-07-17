@@ -2,16 +2,16 @@ import React, { Component } from 'react';
 import { FlatList, View } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import NewsItem from '../NewsItem';
+import Item from './Item';
 import * as actions from '../../actions';
 
-class NewsList extends Component {
+class Articles extends Component {
   componentDidMount() {
     this.props.actions.getArticles();
   }
 
   renderArticle = ({ item }) => (
-    <NewsItem
+    <Item
       urlToImage={item.urlToImage}
       title={item.title}
       description={item.description}
@@ -49,4 +49,4 @@ const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators(actions, dispatch),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(NewsList);
+export default connect(mapStateToProps, mapDispatchToProps)(Articles);

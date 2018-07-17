@@ -3,7 +3,7 @@ import { Image, View, Text, TouchableOpacity } from 'react-native';
 import moment from 'moment';
 import styles from './styles';
 
-class NewsItem extends Component {
+class Item extends Component {
   constructor(props) {
     super();
     this.image = props.urlToImage == null ? 'http://via.placeholder.com/128x96' : props.urlToImage;
@@ -42,4 +42,4 @@ class NewsItem extends Component {
   }
 }
 
-export default NewsItem;
+export default Item;

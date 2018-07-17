@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Button } from 'react-native';
-import NewsList from '../components/NewsList';
+import Articles from '../components/Articles';
 
 class Home extends Component {
   static navigationOptions = ({ navigation }) => ({
@@ -17,7 +17,7 @@ class Home extends Component {
   render() {
     return (
       <View style={{ flex: 1 }}>
-        <NewsList navigation={this.props.navigation} />
+        <Articles navigation={this.props.navigation} />
       </View>
     );
   }
