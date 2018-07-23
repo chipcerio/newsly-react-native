@@ -9,6 +9,7 @@ import Sources from './SourcesModal';
 class Articles extends Component {
   componentDidMount() {
     this.props.actions.getArticles();
+    this.props.actions.getSources();
   }
 
   renderArticle = ({ item }) => (
@@ -27,14 +28,16 @@ class Articles extends Component {
       return <View />;
     }
 
+    const { articles, sources, onSourcesShown } = this.props;
+
     return (
       <View style={{ flex: 1 }}>
         <FlatList
-          data={this.props.articles}
+          data={articles}
           keyExtractor={item => item.title}
           renderItem={this.renderArticle}
         />
-        <Sources visible={this.props.onSourcesShown} />
+        <Sources visible={onSourcesShown} data={sources} />
       </View>
     );
   }
@@ -45,8 +48,13 @@ const mapStateToProps = state => ({
   empty: state.news.empty,
   onLoading: state.news.onLoading,
   onError: state.news.onError,
+  sources: state.source.sources,
 });
 
+// This basically allows us to dispatch actions from the components
+// easily so we dont need to mess with using dispatch in the component's
+// themselves. We can just call functions that will automatically
+// dispatch actions to the store
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators(actions, dispatch),
 });

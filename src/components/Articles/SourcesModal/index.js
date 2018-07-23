@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
-import { Text, View, Modal, StyleSheet } from 'react-native';
+import { FlatList, View, Modal, StyleSheet, Button } from 'react-native';
 import PropTypes from 'prop-types';
+import Item from '../../NewsSources/Item';
 
 type Props = {
   visible: boolean,
@@ -11,11 +12,16 @@ export class SourcesModal extends PureComponent<Props> {
     visible: PropTypes.bool.isRequired,
   };
 
+  renderSourceItem = ({ item }) => <Item title={item.name} />;
+
   render() {
+    const { visible, data } = this.props;
+
     return (
-      <Modal presentationStyle="formSheet" animationType="slide" visible={this.props.visible}>
+      <Modal presentationStyle="pageSheet" animationType="slide" visible={visible}>
         <View style={styles.container}>
-          <Text>This is a Modal</Text>
+          <FlatList data={data} keyExtractor={item => item.id} renderItem={this.renderSourceItem} />
+          <Button title="Ok" onPress={() => {}} />
         </View>
       </Modal>
     );
@@ -25,8 +31,7 @@ export class SourcesModal extends PureComponent<Props> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    marginTop: 24,
   },
 });
 
