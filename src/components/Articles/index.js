@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Item from './Item';
 import * as actions from '../../actions';
+import Sources from './SourcesModal';
 
 class Articles extends Component {
   componentDidMount() {
@@ -33,6 +34,7 @@ class Articles extends Component {
           keyExtractor={item => item.title}
           renderItem={this.renderArticle}
         />
+        <Sources visible={this.props.onSourcesShown} />
       </View>
     );
   }

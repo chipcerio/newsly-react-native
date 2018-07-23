@@ -7,17 +7,41 @@ class Home extends Component {
     title: 'Home',
     headerRight: (
       <Button
-        onPress={() => navigation.navigate('Sources')}
+        onPress={() => {
+          navigation.state.params.onPress();
+        }}
         title="Sources"
         color="rgb(0, 122, 255)"
       />
     ),
   });
 
+  state = {
+    isSourcesShown: false,
+  };
+
+  componentDidMount() {
+    this.props.navigation.setParams({ onPress: this.onSourcesOpen });
+  }
+
+  onSourcesClose = () => {
+    this.props.navigation.goBack();
+  };
+
+  onSourcesOpen = () => {
+    this.setState({
+      isSourcesShown: !this.state.isSourcesShown,
+    });
+  };
+
   render() {
     return (
       <View style={{ flex: 1 }}>
-        <Articles navigation={this.props.navigation} />
+        <Articles
+          navigation={this.props.navigation}
+          onSourcesClosed={this.onSourcesClose}
+          onSourcesShown={this.state.isSourcesShown}
+        />
       </View>
     );
   }
