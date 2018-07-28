@@ -25,7 +25,9 @@ class Home extends Component {
   }
 
   onSourcesClose = () => {
-    this.props.navigation.goBack();
+    this.setState({
+      isSourcesShown: false,
+    });
   };
 
   onSourcesOpen = () => {

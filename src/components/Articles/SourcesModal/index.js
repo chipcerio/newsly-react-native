@@ -5,11 +5,17 @@ import Item from '../../NewsSources/Item';
 
 type Props = {
   visible: boolean,
+  onClosed: () => void,
 };
 
 export class SourcesModal extends PureComponent<Props> {
   static defaultProps = {
     visible: PropTypes.bool.isRequired,
+    onClosed: PropTypes.func.isRequired,
+  };
+
+  onCloseModal = () => {
+    this.props.onClosed();
   };
 
   renderSourceItem = ({ item }) => <Item title={item.name} />;
@@ -21,7 +27,7 @@ export class SourcesModal extends PureComponent<Props> {
       <Modal presentationStyle="pageSheet" animationType="slide" visible={visible}>
         <View style={styles.container}>
           <FlatList data={data} keyExtractor={item => item.id} renderItem={this.renderSourceItem} />
-          <Button title="Ok" onPress={() => {}} />
+          <Button title="Ok" onPress={this.onCloseModal} />
         </View>
       </Modal>
     );

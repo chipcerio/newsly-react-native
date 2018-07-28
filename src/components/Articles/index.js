@@ -1,16 +1,31 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { FlatList, View } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
 import Item from './Item';
 import * as actions from '../../actions';
 import Sources from './SourcesModal';
 
-class Articles extends Component {
+type Props = {
+  onSourcesClosed: () => void,
+  onSourcesShown: boolean,
+};
+
+class Articles extends PureComponent<Props> {
+  static defaultProps = {
+    onSourcesClosed: PropTypes.func.isRequired,
+    onSourcesShown: PropTypes.bool.isRequired,
+  };
+
   componentDidMount() {
     this.props.actions.getArticles();
     this.props.actions.getSources();
   }
+
+  onClosed = () => {
+    this.props.onSourcesClosed();
+  };
 
   renderArticle = ({ item }) => (
     <Item
@@ -37,7 +52,7 @@ class Articles extends Component {
           keyExtractor={item => item.title}
           renderItem={this.renderArticle}
         />
-        <Sources visible={onSourcesShown} data={sources} />
+        <Sources visible={onSourcesShown} data={sources} onClosed={this.onClosed} />
       </View>
     );
   }
