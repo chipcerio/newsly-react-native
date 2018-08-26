@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { View, Button } from 'react-native';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import Articles from '../components/Articles';
+import * as actions from '../actions';
 
 class Home extends Component {
   static navigationOptions = ({ navigation }) => ({
@@ -22,12 +25,18 @@ class Home extends Component {
 
   componentDidMount() {
     this.props.navigation.setParams({ onPress: this.onSourcesOpen });
+    this.props.actions.getArticles();
+    this.props.actions.getSources();
   }
 
   onSourcesClose = () => {
     this.setState({
       isSourcesShown: false,
     });
+  };
+
+  onArticlePress = data => {
+    this.props.navigation.navigate('Details', { data });
   };
 
   onSourcesOpen = () => {
@@ -40,13 +49,29 @@ class Home extends Component {
     return (
       <View style={{ flex: 1 }}>
         <Articles
+          articles={this.props.articles}
           navigation={this.props.navigation}
           onSourcesClosed={this.onSourcesClose}
           onSourcesShown={this.state.isSourcesShown}
+          onArticlePress={this.onArticlePress}
         />
       </View>
     );
   }
 }
 
-export default Home;
+const mapStateToProps = state => ({
+  articles: state.news.articles,
+  empty: state.news.empty,
+  onLoading: state.news.onLoading,
+  onError: state.news.onError,
+  sources: state.source.sources,
+});
+
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators(actions, dispatch),
+});
+
+const HomeWithData = connect(mapStateToProps, mapDispatchToProps)(Home);
+
+export default HomeWithData;

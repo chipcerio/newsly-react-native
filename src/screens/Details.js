@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Image, Text, View } from 'react-native';
+import moment from 'moment';
 
 class Details extends React.Component {
   static navigationOptions = { title: 'Details', header: null };
@@ -8,7 +9,15 @@ class Details extends React.Component {
     const { imageStyle, textContainerStyle, dateTextStyle, titleStyle } = styles;
 
     const { params } = this.props.navigation.state;
-    const { date, source, title, description, image } = params;
+    const { urlToImage, source, title, description, publishedAt } = params.data;
+
+    const image = urlToImage === null ? 'http://via.placeholder.com/128x96' : urlToImage;
+    const date = moment(publishedAt).format('ddd, DD MMM');
+    const desc =
+      description === null
+        ? 'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
+        : description;
+    const { name } = source;
 
     return (
       <View>
@@ -16,7 +25,7 @@ class Details extends React.Component {
 
         <View style={textContainerStyle}>
           <Text style={dateTextStyle}>{date}</Text>
-          <Text style={dateTextStyle}>{source}</Text>
+          <Text style={dateTextStyle}>{name}</Text>
         </View>
 
         <View style={textContainerStyle}>
@@ -26,7 +35,7 @@ class Details extends React.Component {
         </View>
 
         <View style={textContainerStyle}>
-          <Text style={dateTextStyle}>{description}</Text>
+          <Text style={dateTextStyle}>{desc}</Text>
         </View>
       </View>
     );
