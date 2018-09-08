@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import { FlatList, View } from 'react-native';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import * as actions from '../../actions';
+import PropTypes from 'prop-types';
 import Item from './Item';
 
 class NewsSources extends Component {
-  componentDidMount() {
-    this.props.actions.getSources();
-  }
+  static propTypes = {
+    sources: PropTypes.array.isRequired,
+  };
 
   renderSourceItem = ({ item }) => <Item title={item.name} />;
 
@@ -25,15 +23,4 @@ class NewsSources extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  sources: state.source.sources,
-  empty: state.source.empty,
-  onLoading: state.source.onLoading,
-  onError: state.source.onError,
-});
-
-const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators(actions, dispatch),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(NewsSources);
+export default NewsSources;

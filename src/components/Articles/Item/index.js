@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 import { Image, View, Text, TouchableOpacity } from 'react-native';
+import PropTypes from 'prop-types';
 import moment from 'moment';
 import styles from './styles';
 
 class Item extends Component {
+  static propTypes = {
+    data: PropTypes.object.isRequired,
+    onArticlePress: PropTypes.func.isRequired,
+  };
+
   onPress = () => {
     this.props.onArticlePress(this.props.data);
   };

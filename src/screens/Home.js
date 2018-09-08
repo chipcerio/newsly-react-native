@@ -50,10 +50,10 @@ class Home extends Component {
       <View style={{ flex: 1 }}>
         <Articles
           articles={this.props.articles}
-          navigation={this.props.navigation}
+          onArticlePress={this.onArticlePress}
+          sources={this.props.sources}
           onSourcesClosed={this.onSourcesClose}
           onSourcesShown={this.state.isSourcesShown}
-          onArticlePress={this.onArticlePress}
         />
       </View>
     );
