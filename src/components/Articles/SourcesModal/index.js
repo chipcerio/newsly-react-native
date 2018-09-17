@@ -1,7 +1,8 @@
 import React, { PureComponent } from 'react';
-import { FlatList, View, Modal, StyleSheet, Button } from 'react-native';
+import { FlatList, View, Modal, Button } from 'react-native';
 import PropTypes from 'prop-types';
 import Item from '../../NewsSources/Item';
+import styles from './styles';
 
 class SourcesModal extends PureComponent {
   static propTypes = {
@@ -14,9 +15,10 @@ class SourcesModal extends PureComponent {
     this.props.onClosed();
   };
 
+  // required in android
   onRequestClose = () => {};
 
-  renderSourceItem = ({ item }) => <Item title={item.name} />;
+  renderSourceItem = ({ item }) => <Item title={item.name} id={item.id} />;
 
   render() {
     const { visible, data } = this.props;
@@ -36,12 +38,5 @@ class SourcesModal extends PureComponent {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginTop: 24,
-  },
-});
 
 export default SourcesModal;
