@@ -44,5 +44,11 @@
   },
   "jest": {
     "preset": "react-native"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint:fix",
+      "pre-push": "yarn lint:fix"
+    }
   }
 }
