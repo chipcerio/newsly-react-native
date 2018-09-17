@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Button } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Articles from '../components/Articles';
@@ -9,13 +9,13 @@ class Home extends Component {
   static navigationOptions = ({ navigation }) => ({
     title: 'Home',
     headerRight: (
-      <Button
+      <TouchableOpacity
         onPress={() => {
           navigation.state.params.onPress();
         }}
-        title="Sources"
-        color="rgb(0, 122, 255)"
-      />
+      >
+        <Text style={styles.headerButton}>Sources</Text>
+      </TouchableOpacity>
     ),
   });
 
@@ -59,6 +59,17 @@ class Home extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  headerButton: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    paddingRight: 16,
+    paddingLeft: 16,
+    paddingTop: 4,
+    paddingBottom: 4,
+  },
+});
 
 const mapStateToProps = state => ({
   articles: state.news.articles,

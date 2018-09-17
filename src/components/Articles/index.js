@@ -28,7 +28,7 @@ class Articles extends PureComponent {
       <View style={{ flex: 1 }}>
         <FlatList
           data={articles}
-          keyExtractor={item => item.title}
+          keyExtractor={(item, index) => index.toString()}
           renderItem={this.renderArticle}
         />
         <Sources visible={onSourcesShown} data={sources} onClosed={this.onClosed} />
