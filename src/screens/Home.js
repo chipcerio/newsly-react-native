@@ -21,11 +21,12 @@ class Home extends Component {
 
   state = {
     isSourcesShown: false,
+    selectedSources: ['abc-news', 'wired'],
   };
 
   componentDidMount() {
     this.props.navigation.setParams({ onPress: this.onSourcesOpen });
-    this.props.actions.getArticles();
+    this.props.actions.getArticles('abc-news,wired');
     this.props.actions.getSources();
   }
 
@@ -51,6 +52,7 @@ class Home extends Component {
         <Articles
           articles={this.props.articles}
           onArticlePress={this.onArticlePress}
+          selectedSources={this.state.selectedSources}
           sources={this.props.sources}
           onSourcesClosed={this.onSourcesClose}
           onSourcesShown={this.state.isSourcesShown}

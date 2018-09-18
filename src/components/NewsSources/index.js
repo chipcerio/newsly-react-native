@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { FlatList, View } from 'react-native';
 import PropTypes from 'prop-types';
 import Item from './Item';
 
-class NewsSources extends Component {
+class NewsSources extends PureComponent {
   static propTypes = {
     sources: PropTypes.array.isRequired,
   };

@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
-  rootViewStyle: {
+  defaultViewStyle: {
     flexDirection: 'row',
     paddingLeft: 20,
     paddingRight: 20,
@@ -10,7 +10,7 @@ export default StyleSheet.create({
     borderBottomWidth: 0.6,
     borderColor: '#CECECE',
   },
-  textViewStyle: {
+  defaultTextStyle: {
     fontSize: 16,
   },
   selectedViewStyle: {
