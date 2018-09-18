@@ -7,6 +7,11 @@ class SourceItem extends Component {
   static propTypes = {
     // id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
+    isSelected: PropTypes.bool,
+  };
+
+  static defaultProps = {
+    isSelected: false,
   };
 
   state = {
@@ -21,11 +26,10 @@ class SourceItem extends Component {
 
   render() {
     const { defaultViewStyle, defaultTextStyle, selectedViewStyle, seltectedTextStyle } = styles;
-    const { title } = this.props;
-    const { selected } = this.state;
+    const { title, isSelected } = this.props;
 
     let selectable;
-    if (selected) {
+    if (isSelected) {
       selectable = (
         <View style={selectedViewStyle}>
           <Text style={seltectedTextStyle}>{title}</Text>
@@ -38,7 +42,6 @@ class SourceItem extends Component {
         </View>
       );
     }
-
     return <TouchableOpacity onPress={this.onItemSelected}>{selectable}</TouchableOpacity>;
   }
 }
