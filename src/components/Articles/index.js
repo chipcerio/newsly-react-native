@@ -2,12 +2,13 @@ import React, { PureComponent } from 'react';
 import { FlatList, View } from 'react-native';
 import PropTypes from 'prop-types';
 import Item from './Item';
-import Sources from './SourcesModal';
+import SourcesModal from './SourcesModal';
 
 class Articles extends PureComponent {
   static propTypes = {
     articles: PropTypes.array.isRequired,
     onArticlePress: PropTypes.func.isRequired,
+    selectedSources: PropTypes.array.isRequired,
     sources: PropTypes.array.isRequired,
     onSourcesClosed: PropTypes.func.isRequired,
     onSourcesShown: PropTypes.bool.isRequired,
@@ -31,7 +32,12 @@ class Articles extends PureComponent {
           keyExtractor={(item, index) => index.toString()}
           renderItem={this.renderArticle}
         />
-        <Sources visible={onSourcesShown} data={sources} onClosed={this.onClosed} />
+        <SourcesModal
+          visible={onSourcesShown}
+          sources={sources}
+          selected={this.props.selectedSources}
+          onClosed={this.onClosed}
+        />
       </View>
     );
   }

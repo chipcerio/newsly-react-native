@@ -5,12 +5,17 @@ import styles from './styles';
 
 class SourceItem extends Component {
   static propTypes = {
-    // id: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired, // eslint-disable-line react/no-unused-prop-types
     title: PropTypes.string.isRequired,
+    isSelected: PropTypes.bool,
+  };
+
+  static defaultProps = {
+    isSelected: false,
   };
 
   state = {
-    selected: false,
+    selected: this.props.isSelected,
   };
 
   onItemSelected = () => {
@@ -20,17 +25,24 @@ class SourceItem extends Component {
   };
 
   render() {
-    const { rootViewStyle, textViewStyle, selectedViewStyle, seltectedTextStyle } = styles;
-    const { title } = this.props;
-    const { selected } = this.state;
+    const { defaultViewStyle, defaultTextStyle, selectedViewStyle, seltectedTextStyle } = styles;
+    const { title, isSelected } = this.props;
 
-    return (
-      <TouchableOpacity onPress={this.onItemSelected}>
-        <View style={selected ? selectedViewStyle : rootViewStyle}>
-          <Text style={selected ? seltectedTextStyle : textViewStyle}>{title}</Text>
+    let selectable;
+    if (isSelected) {
+      selectable = (
+        <View style={selectedViewStyle}>
+          <Text style={seltectedTextStyle}>{title}</Text>
         </View>
-      </TouchableOpacity>
-    );
+      );
+    } else {
+      selectable = (
+        <View style={defaultViewStyle}>
+          <Text style={defaultTextStyle}>{title}</Text>
+        </View>
+      );
+    }
+    return <TouchableOpacity onPress={this.onItemSelected}>{selectable}</TouchableOpacity>;
   }
 }
 
