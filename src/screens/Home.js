@@ -46,6 +46,12 @@ class Home extends Component {
     });
   };
 
+  onSourcesSelected = id => {
+    this.setState({
+      selectedSources: this.state.selectedSources.push(id),
+    });
+  };
+
   render() {
     return (
       <View style={{ flex: 1 }}>

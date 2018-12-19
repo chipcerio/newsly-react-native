@@ -5,7 +5,7 @@ import styles from './styles';
 
 class SourceItem extends Component {
   static propTypes = {
-    // id: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired, // eslint-disable-line react/no-unused-prop-types
     title: PropTypes.string.isRequired,
     isSelected: PropTypes.bool,
   };
@@ -15,7 +15,7 @@ class SourceItem extends Component {
   };
 
   state = {
-    selected: false,
+    selected: this.props.isSelected,
   };
 
   onItemSelected = () => {

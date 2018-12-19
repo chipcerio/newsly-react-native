@@ -19,6 +19,8 @@ class SourcesModal extends PureComponent {
   // required in android
   onRequestClose = () => {};
 
+  onItemSelected = () => {};
+
   renderSourceItem = ({ item }) => {
     const found = this.props.selected.find(element => element === item.id);
     if (found) {
